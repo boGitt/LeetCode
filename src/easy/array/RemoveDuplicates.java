@@ -1,7 +1,7 @@
 /**
  * 
  */
-package array;
+package easy.array;
 
 import java.util.Arrays;
 
