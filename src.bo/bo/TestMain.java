@@ -1,7 +1,9 @@
+package bo;
+
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-import medium.arrayandstrings.Sum3;
+import bo.medium.arrayandstrings.Sum3;
 
 /**
  * 

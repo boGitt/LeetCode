@@ -1,7 +1,7 @@
 /**
  * 
  */
-package medium.arrayandstrings;
+package bo.medium.arrayandstrings;
 
 import java.util.Iterator;
 import java.util.LinkedList;
