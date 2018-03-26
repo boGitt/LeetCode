@@ -15,6 +15,8 @@ import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.Semaphore;
 
+import org.junit.Test;
+
 /**   
  * Copyright: Copyright (c) 2018 bobo
  * 
@@ -36,6 +38,21 @@ public class Sum3 {
 
 	private BlockingQueue<List<Integer>> queueOfSums = new LinkedBlockingQueue<List<Integer>>();	
 	
+	@Test
+	public void test(){
+		int[] nums = {-1, 0, 1, 2, -1, -4};
+		try {
+			List result = new Sum3().threeSum(nums);
+			System.out.println(result.toString());
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public List<List<Integer>> threeSum(int[] nums) throws InterruptedException, ExecutionException {
 		
 		ExecutorService executor = Executors.newFixedThreadPool(3);
@@ -44,7 +61,7 @@ public class Sum3 {
 		executor.execute(new Choose(nums,semaphore));
 		executor.execute(new Calculate(semaphore));
 		Future future = executor.submit(new Unduplicate(semaphore));
-        
+
 		executor.shutdown();
 		
         return (List<List<Integer>>) future.get();
